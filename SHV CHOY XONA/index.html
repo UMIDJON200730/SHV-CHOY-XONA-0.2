@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Milliy Choyxona POS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <audio id="sms-sound" src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3" preload="auto"></audio>
+
+    <div id="login-screen">
+        <div class="luxury-card">
+            <i class="fas fa-mosque gold-icon"></i>
+            <h1>MILLIY</h1>
+            <p>CHOYXONA</p>
+            <div class="entry-btns">
+                <button onclick="showSection('service')" class="btn-main gold-shadow">🍽 XONA XIZMATI</button>
+                <button onclick="checkPass()" class="btn-main outline">💰 KASSA MONITORI</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-app" style="display:none;">
+        <header class="app-header">
+            <button onclick="goHome()" class="header-btn"><i class="fas fa-chevron-left"></i> ORQAGA</button>
+            <div class="brand"><h1>MILLIY CHOYXONA</h1></div>
+            <div id="cashier-stats" class="stats-box" style="display:none;">
+                KIRIM: <span id="daily-total">0</span> so'm
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div id="service-section" class="full-view" style="display:none;">
+                <aside id="rooms-sidebar"></aside>
+                <div class="menu-container">
+                    <div id="menu-grid"></div>
+                    <div class="fixed-footer">
+                        <div class="total-bar">
+                            <span>XONA HISOBI:</span>
+                            <span id="room-sum">0</span>
+                        </div>
+                        <button onclick="sendOrder()" class="btn-send">BUYURTMANI YUBORISH</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cashier-section" class="full-view" style="display:none;">
+                <div id="active-bills-list"></div>
+                <div class="cashier-tools">
+                    <button onclick="showAddFood()" class="tool-btn"><i class="fas fa-plus"></i> TAOM QO'SHISH</button>
+                    <button onclick="showJournal()" class="tool-btn"><i class="fas fa-history"></i> JURNAL</button>
+                    <button onclick="finishDay()" class="tool-btn red"><i class="fas fa-power-off"></i> KUNNI YAKUNLASH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-overlay" style="display:none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button onclick="closeModal()" class="close-btn">&times;</button>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

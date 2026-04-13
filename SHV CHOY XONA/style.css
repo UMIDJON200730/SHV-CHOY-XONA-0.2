@@ -1,0 +1,238 @@
+/* Asosiy o'zgaruvchilar */
+:root { 
+    --gold: #d4af37; 
+    --dark: #0a0b0d; 
+    --card: #1c1e22; 
+    --green: #2ecc71; 
+    --red: #c0392b;
+}
+
+/* Umumiy sozlamalar */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+}
+
+body { 
+    background: #000; 
+    color: white; 
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+/* --- KIRISH EKRANI --- */
+#login-screen { 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    background: radial-gradient(circle, #222, #000); 
+    text-align: center; 
+    padding: 20px;
+}
+
+.luxury-card h1 { 
+    font-size: clamp(30px, 8vw, 45px); 
+    color: var(--gold); 
+    letter-spacing: 5px; 
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.btn-main { 
+    width: 100%; 
+    max-width: 300px;
+    padding: 18px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border-radius: 10px; 
+    margin-top: 15px; 
+    cursor: pointer; 
+    border: none; 
+    transition: 0.3s;
+}
+
+.gold-shadow { 
+    background: var(--gold); 
+    color: black; 
+    box-shadow: 0 0 20px rgba(212,175,55,0.3); 
+}
+
+.outline { 
+    background: transparent; 
+    border: 2px solid var(--gold); 
+    color: var(--gold); 
+}
+
+.btn-main:active { transform: scale(0.95); }
+
+/* --- ASOSIY LAYOUT --- */
+.app-header { 
+    height: 65px; 
+    background: #000; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 15px; 
+    border-bottom: 2px solid #222; 
+}
+
+.full-view { 
+    display: flex; 
+    height: calc(100vh - 65px); 
+    width: 100%; 
+}
+
+/* --- SIDEBAR (XONALAR) --- */
+#rooms-sidebar { 
+    width: 100px; 
+    background: #0d0e10; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    padding: 10px; 
+    overflow-y: auto; 
+    border-right: 1px solid #222;
+}
+
+.r-btn { 
+    min-height: 40px;
+    width: 100%;
+    border-radius: 8px; 
+    border: 1px solid #444; 
+    background: #1a1b1e; 
+    color: #fff; 
+    cursor: pointer; 
+    font-size: 14px; 
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.r-btn.active { 
+    background: var(--gold); 
+    color: black; 
+    border: none; 
+}
+
+.r-btn.busy { 
+    border-color: var(--gold); 
+    color: var(--gold); 
+    box-shadow: inset 0 0 5px var(--gold); 
+}
+
+/* --- MENU GRID --- */
+#menu-grid { 
+    flex: 1; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    gap: 12px; 
+    padding: 15px; 
+    overflow-y: auto; 
+    padding-bottom: 120px; 
+    background: #111;
+}
+
+.food-card { 
+    background: var(--card); 
+    border-radius: 10px; 
+    border: 1px solid #333; 
+    overflow: hidden; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.food-img, .room-placeholder { 
+    width: 100%; 
+    height: 100px; 
+    object-fit: cover; 
+}
+
+.room-placeholder {
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+}
+
+.food-info { padding: 10px; }
+.food-info h3 { font-size: 14px; margin-bottom: 5px; color: white; }
+
+/* SAVAT VA FOOTER */
+.fixed-footer { 
+    position: fixed; 
+    bottom: 0; 
+    left: 100px; /* Sidebar kengligi */
+    right: 0; 
+    background: #000; 
+    padding: 15px; 
+    border-top: 2px solid #333; 
+}
+
+.total-bar { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 10px; 
+    font-size: 18px; 
+    color: var(--gold); 
+    font-weight: bold; 
+}
+
+.btn-send { 
+    width: 100%; 
+    background: var(--green); 
+    color: white; 
+    border: none; 
+    padding: 12px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* KASSA */
+.bill-card {
+    background: var(--card);
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid var(--gold);
+}
+
+/* MODAL */
+#modal-overlay { 
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0,0,0,0.85); 
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 2000; 
+}
+
+.modal-card { 
+    background: var(--card); 
+    width: 90%; 
+    max-width: 400px; 
+    padding: 25px; 
+    border-radius: 15px; 
+    border: 1px solid var(--gold); 
+}
+
+.lux-input { 
+    width: 100%; 
+    padding: 12px; 
+    background: #000; 
+    border: 1px solid #444; 
+    color: white; 
+    margin-bottom: 15px; 
+    border-radius: 8px; 
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
